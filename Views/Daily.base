@@ -1,0 +1,15 @@
+filters:
+  and:
+    - 'file.inFolder("Entries")'
+    - 'file.ext == "md"'
+    - 'date(note.created) == today() || (note.scheduled && date(note.scheduled) == today())'
+views:
+  - type: table
+    name: Daily
+    order:
+      - file.name
+      - note.type
+      - note.description
+      - note.scheduled
+      - note.status
+      - note.collection

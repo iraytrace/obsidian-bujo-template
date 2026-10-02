@@ -1,0 +1,17 @@
+filters:
+  and:
+    - file.inFolder("Entries")
+    - file.ext == "md"
+    - note.type == "note"
+views:
+  - type: table
+    name: Notes
+    order:
+      - file.name
+      - type
+      - description
+      - scheduled
+      - status
+      - collection
+    columnSize:
+      note.description: 214

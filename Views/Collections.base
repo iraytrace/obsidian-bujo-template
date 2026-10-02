@@ -1,0 +1,18 @@
+filters:
+  and:
+    - 'file.inFolder("Entries")'
+    - 'file.ext == "md"'
+    - 'true'
+views:
+  - type: table
+    name: Collections
+    groupBy:
+      property: note.collection
+      direction: ASC
+    order:
+      - file.name
+      - note.type
+      - note.description
+      - note.scheduled
+      - note.status
+      - note.collection

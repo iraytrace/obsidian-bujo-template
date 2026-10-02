@@ -1,0 +1,15 @@
+filters:
+  and:
+    - 'file.inFolder("Entries")'
+    - 'file.ext == "md"'
+    - 'note.type == "task"'
+views:
+  - type: table
+    name: Tasks
+    order:
+      - file.name
+      - note.type
+      - note.description
+      - note.scheduled
+      - note.status
+      - note.collection

@@ -1,0 +1,15 @@
+filters:
+  and:
+    - 'file.inFolder("Entries")'
+    - 'file.ext == "md"'
+    - 'note.scheduled && date(note.scheduled).format("YYYY-MM") > today().format("YYYY-MM")'
+views:
+  - type: table
+    name: Future
+    order:
+      - file.name
+      - note.type
+      - note.description
+      - note.scheduled
+      - note.status
+      - note.collection

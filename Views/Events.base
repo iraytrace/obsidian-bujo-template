@@ -1,0 +1,15 @@
+filters:
+  and:
+    - 'file.inFolder("Entries")'
+    - 'file.ext == "md"'
+    - 'note.type == "event"'
+views:
+  - type: table
+    name: Events
+    order:
+      - file.name
+      - note.type
+      - note.description
+      - note.scheduled
+      - note.status
+      - note.collection
