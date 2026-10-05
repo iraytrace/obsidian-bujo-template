@@ -26,7 +26,7 @@ Do not duplicate a task when moving its date or assigning a collection.
 | Monthly | created OR scheduled during the current calendar month |
 | Future | scheduled during a later calendar month |
 | Tasks / Events / Notes | corresponding type |
-| Collections | same entries grouped by collection |
+| Collections | entries with a collection label, grouped by collection |
 
 These are live current-date views, not archived daily/monthly notes. After midnight or
 a month boundary, their results change with the device date. For an old entry use file
@@ -35,7 +35,7 @@ An entry created today and scheduled next month appears in Daily, Monthly, Futur
 its type view at once. This does not create copies. Daily/Monthly do not show every old
 unscheduled unfinished task; use Tasks to review those.
 
-Keep collection as a List with at most one label. Its blank group means no collection.
+Keep collection as a List with at most one label. Entries without a label are hidden in Collections; they remain in their other applicable views.
 Multiple labels produce a combined group; separate multi-collection membership is out
 of scope. The one-label convention is not enforced by the Properties editor.
 

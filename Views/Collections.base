@@ -2,7 +2,7 @@ filters:
   and:
     - 'file.inFolder("Entries")'
     - 'file.ext == "md"'
-    - 'true'
+    - '!note.collection.isEmpty()'
 views:
   - type: table
     name: Collections

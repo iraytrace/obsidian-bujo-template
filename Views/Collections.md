@@ -2,6 +2,6 @@ links: [[Dashboard|Dashboard]] | [[Logs/Daily|Daily]] | [[Logs/Monthly|Monthly]]
 
 # Collections
 
-Use zero or one collection label per entry. The blank group means no collection.
+Entries with a collection label, grouped by collection. Use zero or one label per entry; entries without a label are hidden here.
 
 ![[Views/Collections.base]]
