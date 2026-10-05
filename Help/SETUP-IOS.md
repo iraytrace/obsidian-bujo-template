@@ -1,43 +1,37 @@
 # iPhone and iPad setup
 
-Status: documented/proposed, untested on actual iPhone/iPad. This is a trial guide, not
-a verified promise. Use fictional content and a separate private repository owned by
-the friend. No developer tools, command line, BRAT, paid sync, or native Git are required
-by the proposed workflow; ability to complete every step still needs actual-device proof.
+Documented/proposed, untested on actual iPhone/iPad. This is not a verified cross-platform
+release. Begin with fictional entries in the friend's own private repository. Read
+[first-time setup](FIRST-TIME-SETUP.md) for GitHub and plugin basics.
 
-1. Install Obsidian on both devices. Record hardware, iOS/iPadOS, Obsidian and plugin
-   versions. Create an on-device local vault on the first device. Turn off Store in iCloud
-   if that option is offered. Record storage location. If local storage cannot be selected
-   or inspected, stop and report it rather than combine iCloud and Git synchronization.
-2. Obtain the package ZIP and extract into a new local folder. Determine whether this
-   Obsidian version can open the extracted folder as a vault, or whether Files can move
-   its contents into the newly created local vault. Copy all package contents, including
-   .gitignore, but no .obsidian is supplied. Hidden-file visibility and sandbox access
-   must be verified; do not assume the Android/Windows copying route works on iOS.
-3. If local import is blocked, a trusted helper can seed the friend's own private remote
-   with the sanitized package. The friend can then attempt plugin initialization into
-   an empty local vault. This fallback is proposed, not tested; never seed it with another
-   person's entries or credentials, and never send a token to the helper.
-4. Follow LOCAL-CONFIGURATION. Install Git Vault Sync through Community plugins. Disable
-   startup and timer sync. If the store does not offer it or enabling it fails, stop.
-5. Create the friend's own empty private GitHub repository (or use their seeded one).
-   In a browser, create an expiring fine-grained token restricted to that repo, Contents
-   read/write. Enter it only into this device's plugin. Fill HTTPS URL, main, and username.
-6. Test connection through Command palette. For an existing populated remote, try
-   Initialize; for a locally imported package and empty remote, try explicit Sync once.
-   These bootstrap actions require device testing. Report exact messages if unsuccessful.
-7. Check remote Private status and absence of .obsidian. Create an empty local vault on
-   the second device; install/configure the plugin independently with a separate token,
-   then download. Repeat LOCAL-CONFIGURATION: plugin and core settings do not transfer.
-8. Test both sync directions, offline app restart and entry creation, attachments, Bases,
-   conflict handling, failure/retry, direct navigation, and manual backup/new-vault restore.
-   Use the ANDROID-TEST checklist adapted to each actual device, not an emulator.
+1. Seed the private repository with design history using the setup guide's computer
+   procedure. A helper may do this before personal content exists; the friend enters
+   device tokens privately. Periodic design updates still need a computer.
+2. Install Obsidian. Record iOS/iPadOS, app/plugin versions, storage location, and timezone.
+   Create a local vault. Turn off Store in iCloud if offered. If local placement is
+   unavailable, stop before mixing Git and iCloud synchronization.
+3. Install Git Vault Sync. Disable startup/timer sync, leave engine Auto, and enter
+   the private repository URL/main/username and a separate expiring repository-scoped
+   token. See first-time setup for permissions.
+4. Test connection from Command palette if offered; try Initialize for the populated
+   repository. This bootstrap needs device proof. If missing or unsuccessful, preserve
+   the vault and report the exact screen/message before changing engines or resetting.
+5. Complete [local configuration](LOCAL-CONFIGURATION.md), including installing QuickAdd
+   and configuring [New entry](QUICKADD.md). Scripts/Templates/Help must have downloaded;
+   .obsidian does not. Never transfer another device's credential settings.
+6. Check navigation, QuickAdd, dates/times, Future, Collections, and offline restart.
+   Set up the second device independently, then test both sync directions, attachments,
+   conflicts, visible failures/retry, and backup/restore. Adapt [device checks](ANDROID-TEST.md)
+   to iPhone and iPad separately; actual hardware is required.
 
-Sync through its ribbon command (or Command palette) while Obsidian remains foregrounded.
-No automatic-sync fallback is authorized. If one-button manual sync or initial setup
-fails, report the limitation; preserve the offline journal rather than silently substitute
-an untested plugin. Independent complete-vault backup/export through Files also needs
-device proof; inability to access hidden settings must be recorded as a restore limitation.
+Mobile pull-down defaults to Command palette; toolbar/menu placement needs device
+checks. Keep Obsidian foregrounded until sync finishes. Plugin/bootstrap failures
+are limitations to record, not grounds for silently choosing another sync service.
 
-Source for platform claims and engine/config limits:
-[Git Vault Sync](https://github.com/heeeyMan/ObsSync).
+ZIP import is an optional local-use route, not the main sync setup. Files access to
+hidden files, extraction into local storage, and opening that folder must be tested
+on iOS. Do not assume Windows/Android steps apply. [Backup/restore](BACKUP-RESTORE.md)
+has similarly unverified complete-vault export requirements.
+
+Sources: [Git Vault Sync](https://github.com/heeeyMan/ObsSync),
+[Obsidian mobile](https://obsidian.md/help/mobile).

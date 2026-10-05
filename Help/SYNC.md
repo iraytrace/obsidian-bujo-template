@@ -1,5 +1,9 @@
 # Manual sync and recovery
 
+Start with [first-time setup](FIRST-TIME-SETUP.md) for plugin/token configuration.
+This guide is for everyday device synchronization. [Design updates](REPOSITORY-MANAGEMENT.md)
+are a separate computer operation; configure the plugin only with your private repository.
+
 ## Normal use
 
 Press the Git Vault Sync circular-arrows ribbon action, or run Sync vault with Git in
@@ -18,8 +22,9 @@ success and check the receiving device. The remote is history/synchronization, n
 sole independent backup.
 
 .obsidian and .trash are excluded. Core settings, property types, bookmarks, plugin
-installation, and credentials must be set separately per device. Markdown entry YAML,
-attachments, and .base files are the shared journal. Mobile Auto is documented to use
+installation, credentials, and QuickAdd macro configuration are set separately per device.
+Markdown entry YAML, attachments, .base files, and the supplied Scripts/New-Entry.js
+are shared. Do not copy .obsidian to configure another device. Mobile Auto is documented to use
 GitHub API; it does not provide the desktop selective commit preview or full local Git
 history. A successfully downloaded Windows file does not prove mobile behavior.
 

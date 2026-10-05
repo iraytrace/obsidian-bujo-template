@@ -1,70 +1,68 @@
-# Manual backup and restore
+# Back up and restore your journal
 
-Status: Windows prototype file-copy restore verified; restored-vault app check user-verified.
-Android and iPhone/iPad workflows are untested.
+Synchronization is not your only backup: a mistaken edit/deletion can synchronize too.
+Keep dated, complete vault copies outside the active vault and its Git repository.
+Windows original copy/restore passed; mobile workflows below remain untested.
 
-Close the vault in Obsidian before copying. Make a dated complete folder copy outside
-the active vault and its Git repository. Include Entries, Attachments, Templates, .base
-files, .obsidian, and local .git history. Copying only files tracked by Git omits settings
-and may omit uncommitted entries. Never use synchronization as the only backup.
+## Make a Windows backup
 
-For the developer's fictional prototype, the implementation-only
-Scripts/Test-PrototypeBackup.ps1 helper copies into new backup
-and restore directories and compares every file using SHA256. It refuses existing
-destinations, reparse points, and vaults with community plugins. This is a prototype
-helper, not a general credential-sanitizing backup tool. A failed verification leaves
-copies for inspection; do not regard them as verified backups.
+1. Finish any sync, then close the vault in Obsidian. Locate the actual vault folder
+   in File Explorer; it contains Dashboard, Entries, Attachments, and .obsidian.
+2. Enable Show hidden items so you can check .obsidian and .git if present. Copy the
+   entire vault folder to a new dated destination, for example Bujo-2026-10-04, on
+   protected storage outside the active vault. Never copy a folder into itself.
+3. Include Entries, Attachments, Templates, Views, Logs, Scripts, Help, root pages,
+   .obsidian, and .git if this device has local history. A Git-tracked-files-only
+   copy omits settings and possibly unsynced data.
+4. Protect the copy as described below. Check that important files/attachments are
+   present, and test a restore. Keep the backup unchanged after making it.
+5. When ready, keep another verified copy on separate storage, such as an external
+   drive. A second folder on the same PC does not protect against PC loss.
 
-The Windows trial created a dated backup and a separate restored vault on 2026-09-30.
-All 100 files matched the source; source stability was checked before/after copying.
-Exact developer test paths are recorded in the implementation's validation log, not
-needed in a friend's vault. The package contains no backup copies or developer scripts.
+## Protect credentials and private entries
 
-Open the restore directory as another vault in Obsidian, with synchronization disabled.
-Verify navigation, views, properties, edited entry content, Templates, Bookmarks, and
-settings. Confirm the restored .git history is available independently of the original.
-The binary fixture was verified by hash; it is not a previewable attachment.
+Git Vault Sync stores a token in .obsidian/plugins/git-vault-sync/data.json. Complete
+copies can contain it and any other plugin credentials. Prefer encrypted storage or
+an encrypted archive; keep its key/password separately. Ordinary ZIP compression
+does not encrypt. Password-protected encryption must cover the full backup, not
+just the private entry files.
 
-The user confirmed the restored vault's navigation, filtered views, edited entries,
-properties, Templates, and Bookmarks on 2026-09-30. Separate/off-device copy is pending.
+Alternatively, use a separate staging copy and omit credential-bearing files from
+that copy. Never delete settings from the active vault to sanitize a backup. Review
+other plugin settings and .git/config/history for credentials too. Record what was
+omitted so you can reconfigure plugins and enter new tokens during restore. Do not
+send complete credential-bearing vault copies to helpers or commit backups to Git.
 
-Keep the backup folder unchanged. Make a second copy on separate storage, such as an
-external drive; this local Desktop copy does not protect against loss of the PC. Verify
-the separate copy too. For a personal vault, encrypt backups if they contain sensitive
-notes or credentials, or remove credentials from a staging copy and document how to
-re-enter them. Never alter the active vault to sanitize a backup. Review .git/config and
-history as well as plugin settings for credentials. Keep encryption keys separately.
+## Test a restore
 
-Recovering an individual note from Git history is a different recovery method; it does
-not replace complete backups or restore testing. Device-specific mobile backup steps and
-history-recovery instructions will be established during their respective trials.
+1. Copy/extract the backup into a new folder, not the active journal. For an authenticated
+   restore, clear/re-enter credentials only in the restored copy; do not let it sync
+   against the live journal during the test. Automatic startup/timer sync must be off.
+2. Open that folder as another Obsidian vault. Check descriptions, long note bodies,
+   attachments, navigation, property types, Bases, QuickAdd New entry, Templates,
+   and bookmarks. Inspect history if .git was copied; mobile API vaults may not have it.
+3. Compare restored files with the backup/source. Original Windows testing compared
+   all 100 files by SHA256 and user-verified the restored app; revised QuickAdd and
+   mobile restoration are not yet verified. Do not replace the live vault until the
+   restored one works and you have preserved its current contents.
 
-## Backups after authentication
+Restoring one older note from GitHub history is separate from full backup/restore;
+see [sync recovery](SYNC.md). Design updates also need a backup first; see
+[repository management](REPOSITORY-MANAGEMENT.md).
 
-The plugin now stores a token locally. The old pre-authentication prototype copy procedure
-must not be applied blindly to current vaults: unencrypted .obsidian/plugins/git-vault-sync/
-data.json may contain credentials. Use encrypted storage/archives, or first create a
-staging copy outside the active vault and omit that credential file from the copy. Never
-delete it from the active vault. Record that plugin account/trigger settings need manual
-restoration and re-enter a newly issued repository-scoped token locally. Verify that Git
-history/config does not contain credentials. An ordinary ZIP does not encrypt its files.
+## Android trial
 
-## Proposed Android backup trial
+Close Obsidian. Use a file manager that can access your local vault and hidden files
+to copy its complete tree to a dated destination outside the active vault. Protect
+tokens/private content as above. Restore to another folder, open it as a new vault,
+and perform the same checks. If hidden configuration or folder opening is blocked,
+record exactly what is missing; acceptance remains pending.
 
-Close the vault. Using a file manager that can access the selected local storage and show
-hidden files, copy the complete vault tree to a dated folder outside the active vault.
-Include .obsidian for the journal settings and API baseline, attachments and .base files;
-handle token settings as above. Restore the copy to a different folder and open it as a
-new vault, with automatic sync disabled and credentials cleared/re-entered deliberately.
-Verify note text, image/PDF opening, types, Templates, navigation, Bases, and bookmarks.
-If the file manager cannot copy hidden configuration or Obsidian cannot open the restored
-folder, record the limitation; this backup route is not accepted until demonstrated.
+## iPhone/iPad trial
 
-## Proposed iPhone/iPad backup trial
-
-Determine whether Files can access/export the complete local vault including hidden
-configuration, without moving the active vault into iCloud. Copy/export into a dated
-location outside the active vault, protect sensitive content, then restore into a new
-local Obsidian vault. If app sandboxing prevents complete export or import, report exactly
-what is missing and leave restore acceptance pending. No working iOS backup route has
-been verified in this project. Separate/off-device copy testing was explicitly deferred.
+Check whether Files can export/import the complete local vault including required
+hidden settings without moving the active vault into iCloud. Preserve encryption
+and credential handling. Restore to a new local vault and verify both devices.
+App sandboxing or missing hidden files must be recorded as limitations. No complete
+iOS backup route is verified yet. Separate/off-device copy testing was explicitly
+deferred in the current project; it remains recommended, not a passed check.

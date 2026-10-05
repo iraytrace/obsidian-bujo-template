@@ -2,6 +2,6 @@ links: [[Dashboard|Dashboard]] | [[Logs/Daily|Daily]] | [[Logs/Monthly|Monthly]]
 
 # Future
 
-Scheduled after the current month.
+Scheduled after the current month, plus undated tasks and events (someday). Undated notes are excluded.
 
 ![[Views/Future.base]]

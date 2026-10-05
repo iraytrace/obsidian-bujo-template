@@ -1,15 +1,19 @@
 # Start here
 
-This journal works offline after local setup. Create each task, event, or note once;
-the logs and views display that same entry. Start at [[Dashboard]].
+Begin with [the complete setup guide](Help/FIRST-TIME-SETUP.md). It walks through
+GitHub clone/fork choices, a private repository, vault creation, plugin installation,
+and BuJo configuration. [README](README.md) gives the project overview.
 
-1. Follow [[Help/SETUP-WINDOWS-ANDROID]] or [[Help/SETUP-IOS]].
-2. Complete [[Help/LOCAL-CONFIGURATION]] on every device.
-3. Read [[Help/USING-THE-JOURNAL]] and create your first entry.
-4. If using sync, follow [[Help/SYNC]] and keep automatic sync off.
-5. Keep independent dated backups using [[Help/BACKUP-RESTORE]].
+After setup, open [[Dashboard]] and run QuickAdd: New entry. Choose a type, enter
+a description, and answer the optional date/time prompts. Keep one file per entry.
 
-Windows prototype behavior is verified. This packaged empty vault is derived from it;
-Android and actual iPhone/iPad testing are pending. See [[Help/ACCEPTANCE]] for limits.
-No subscription is required for local use. Sync uses your own private GitHub repository.
-Each person uses their own vault and repository. No credentials or entries are supplied.
+- [New entry setup](Help/QUICKADD.md)
+- [Using the journal](Help/USING-THE-JOURNAL.md)
+- [Manual sync and recovery](Help/SYNC.md)
+- [Independent backups](Help/BACKUP-RESTORE.md)
+- [Personal repository and design updates](Help/REPOSITORY-MANAGEMENT.md)
+- [Acceptance status](Help/ACCEPTANCE.md)
+
+Each person uses an independent private repository. Keep startup/timer sync off.
+Repeat local plugin/settings setup on every device. Mobile acceptance is still pending;
+test fictional entries before trusting a new device with personal content.

@@ -1,42 +1,60 @@
 # Configure each device
 
-These settings are local. The package includes no .obsidian folder, and the selected
-sync policy excludes that folder on every device. Repeat this checklist on each device.
-Menu placement may vary by version; use the named settings and commands.
+Start with [first-time setup](FIRST-TIME-SETUP.md). .obsidian is neither distributed
+nor synchronized; repeat this checklist on each device. Menu placement varies by version.
 
-1. In Settings > Core plugins, enable Bases, Templates, Bookmarks, Properties view,
-   Command palette, and File recovery. File recovery is device-local, not a full backup.
-2. In Settings > Templates, set Template folder location to Templates and Date format
-   to YYYY-MM-DD. Do not edit template date placeholders in the Properties panel.
-3. In Settings > Files and links, set Default location for new notes to the specified
-   folder Entries. Set Default location for new attachments to the specified folder
-   Attachments. Create these folders if an extraction tool omitted empty directories.
-4. Insert a template into one new entry as described in USING-THE-JOURNAL. In its
-   Properties panel, use the icon beside each property to select the following types.
-   A name's type applies across the vault, but must be configured separately per device.
+## Core settings
 
-| Property | Type | Values |
+1. Settings > Core plugins: enable Bases, Templates, Bookmarks, Properties view,
+   Command palette, and File recovery. File recovery is local recovery, not a backup.
+2. Settings > Templates: Template folder location = Templates; Date format = YYYY-MM-DD.
+   Leave template placeholders intact; edit properties in actual entries instead.
+3. Settings > Files and links: Default location for new notes = specified folder Entries;
+   Default location for new attachments = specified folder Attachments. Both folders
+   should exist; .gitkeep preserves them in Git and is not an entry.
+4. Configure [QuickAdd New entry](QUICKADD.md). Create a fictional entry, then use
+   each property's icon in its Properties panel to check the following types:
+
+| Property | Type | Meaning |
 | --- | --- | --- |
 | type | Text | task, event, note |
-| created | Date | YYYY-MM-DD; date of creation |
-| scheduled | Date | YYYY-MM-DD; omit when unscheduled |
-| status | Text | tasks: open, done, cancelled; omit otherwise |
-| collection | List | empty or one label |
-| description | Text | short summary |
+| created | Date | YYYY-MM-DD; creation date |
+| scheduled | Date | Optional YYYY-MM-DD; blank/absent means undated |
+| time | Text | Optional HH:mm; event time |
+| status | Text | task: open, done, cancelled |
+| collection | List | Empty or one label |
+| description | Text | Short readable summary |
 
-5. Open Dashboard, then Tasks and Notes. Tables should render. Empty tables in a new
-   personal vault are expected. Bookmark Dashboard or a preferred log/view with core
-   Bookmarks. Entries can also be opened directly through Quick Switcher or file explorer.
-6. If installing Git Vault Sync, disable Sync on startup and Auto-sync on a timer before
-   credentials. Leave the engine on Auto for the platform trial. Add .obsidian/ and .trash/
-   to Excluded paths if the plugin offers that setting; retain the packaged .gitignore.
-   Verify both automatic options remain off after restarting. Do not install other sync
-   plugins into the same active vault during this trial.
+No someday checkbox is required. Undated tasks/events are someday items in Future;
+undated notes stay out. A property's type applies across the local vault, but must
+be checked on each device. Check optional properties after creating an entry that
+uses them. Leave optional dates absent instead of writing a fake date.
 
-Windows reference: executable version 1.13.7.0, Git Vault Sync 0.2.24. Record actual app
-and plugin versions on every device; use a compatible public Obsidian version with Bases.
-Do not assume a newer plugin preserves tested behavior.
+Open Dashboard, Daily, Tasks, and Notes. Empty tables are normal in a fresh vault.
+Bookmark Dashboard or a preferred view. Use Reading view for navigation pages if
+you do not want to edit links; links: merely moves Dashboard away from the cursor's
+initial position. Ctrl+click links in editing mode on Windows.
 
-Sources: [Templates](https://help.obsidian.md/plugins/templates),
-[Properties](https://help.obsidian.md/properties),
-[Bases](https://obsidian.md/help/bases).
+## Sync settings
+
+Follow [first-time setup](FIRST-TIME-SETUP.md) for Git Vault Sync and your device's
+token. Keep startup/timer sync off. Retain .gitignore with .obsidian/ and .trash/
+excluded; configure the same plugin exclusions if offered. Entries and Attachments
+must NOT be excluded in a personal vault. Leave engine Auto for platform testing.
+Do not combine this vault with another automatic sync service. Restart once and
+confirm automatic options remain off.
+
+## Optional core-only entry creation
+
+If QuickAdd is unavailable, enable Unique note creator. Settings > Unique note creator:
+New file location = Entries; Filename format = YYYYMMDD-HHmmss-SSS; Template file
+location = blank. Run Create new unique note, then Templates: Insert template and
+choose task/event/note. Fill description and remove scheduled if undated. Ordinary
+New note and Bases New do not run this sequence. The fallback was user-verified on
+Windows; mobile remains untested.
+
+Reference Windows executable: 1.13.7.0; Git Vault Sync 0.2.24; QuickAdd 2.30.0.
+Record actual app/plugin versions; newer versions need their own checks.
+Sources: [Properties](https://obsidian.md/help/properties),
+[Templates](https://obsidian.md/help/plugins/templates),
+[Unique note creator](https://obsidian.md/help/plugins/unique-note).

@@ -1,35 +1,37 @@
-# Android acceptance trial
+# Device acceptance checks
 
-Status: untested. Use fictional entries in the disposable repository. A Windows-to-Windows
-pass does not establish Android behavior. Work one check at a time and record failures.
+Android status: untested. Use fictional entries in a dedicated private trial repository.
+Windows passes do not establish mobile behavior. For iOS, run this checklist separately
+on actual iPhone and iPad. Start with [setup](FIRST-TIME-SETUP.md).
 
-Environment: phone/model __; Android __; Obsidian __; Git Vault Sync __;
-engine __; vault path __; date/timezone __; automatic startup/timer options __.
-Record repository identity without tokens. A token is never evidence to paste in a report.
+Record OS, Obsidian, Git Vault Sync, QuickAdd versions, engine, vault path, date/timezone,
+and startup/timer settings. Phone model is optional. Never report tokens or private content.
 
-| Check | Steps and expected result | Outcome |
+| Check | Expected result | Outcome |
 | --- | --- | --- |
-| Fresh setup | Local vault, store installation, disabled automation, connection and initial download | Pending |
-| Core config | Repeat LOCAL-CONFIGURATION; dates are Date, collection is List | Pending |
+| Fresh setup | Local vault, plugin install, startup/timer off, private-repo download | Pending |
+| Local settings | Repeat local configuration and QuickAdd macro setup; Date/List/Text types correct | Pending |
+| New entry | Type/description prompts create one timestamp file using the correct template | Pending |
+| Optional dates | Task/note default blank, event defaults today; cancel creates no file | Pending |
+| Event time | 14:30 saved as Text; blank omitted; invalid hour/minute prompts again | Pending |
 | Navigation | Eight links on all major pages; bookmark/open Tasks directly | Pending |
-| Offline use | Airplane mode, restart app, create task/event/note from templates, edit/reopen; all persist | Pending |
-| Filters | Today-created task scheduled next month appears in Daily/Monthly/Future/Tasks, one file | Pending |
-| Unscheduled | Remove scheduled; Future excludes it, type and creation-date views still work | Pending |
-| Collections | One label then empty; correct group and blank group, no copy | Pending |
-| Windows to phone | Create unique fictional Windows entry; sync Windows, then phone; contents match | Pending |
-| Phone to Windows | Edit that entry on phone; sync phone, then Windows; contents match | Pending |
-| Attachment | Attach a small synthetic PNG or PDF on Windows; sync to phone and open offline; compare bytes after download | Pending |
-| Bases | Verify .base files arrive intact and render; edit table property and confirm original Markdown changes | Pending |
-| Failure/retry | Offline sync reports failure without losing edits; reconnect/retry delivers them | Pending |
-| Concurrent edit | Preserve both versions, edit same field on both, sync sequentially; conflict visible and both versions recoverable | Pending |
-| Restart settings | App restart keeps automatic triggers off; no .obsidian distribution or token sharing | Pending |
-| Backup/restore | Complete local vault copy including hidden config, outside active vault; restore into new phone vault and verify | Pending |
+| Entry opening | Open existing entry body with filename columns hidden | Pending |
+| Offline restart | Disconnect, restart, create/edit/reopen each type; changes persist | Pending |
+| Dated filters | Today-created task dated next month appears in Daily/Monthly/Future/Tasks, one file | Pending |
+| Someday | Blank/missing scheduled task/event appear in Future; undated note does not | Pending |
+| Same-month event | Later-this-month dated event stays out of Future and appears in Monthly | Pending |
+| Collections | Assign one label: appears in group; clear label: disappears only from Collections | Pending |
+| Windows to phone | Sync Windows then phone; entry and script/view bytes arrive intact | Pending |
+| Phone to Windows | Edit on phone, sync phone then Windows; edit arrives | Pending |
+| Attachment | Small synthetic PNG/PDF arrives and opens offline; compare downloaded bytes | Pending |
+| Canonical editing | Table property edit updates original Markdown, no duplicated entry | Pending |
+| Failure/retry | Offline sync visibly fails; reconnect/retry delivers edits without loss | Pending |
+| Concurrent edit | Preserve both versions; conflict is visible and both versions recoverable | Pending |
+| Restart settings | Startup/timer remain off; no credential/settings sharing | Pending |
+| Backup/restore | Dated complete vault copy outside vault; restore new vault including hidden config | Pending |
 
-Use a previewable attachment: existing sample.bin only tests bytes and cannot demonstrate
-image/PDF opening. No attachment-size limit is accepted until tested on this phone.
-Mobile may suspend the app in the background; keep it foregrounded until explicit sync
-reports completion. Do not count starting a sync as completion.
-
-For each row record actual steps, success/error text, date, and any recovery. If a check
-fails, preserve local work and stop dependent checks. Update Docs/VALIDATION.md with actual
-device evidence; do not change Pending to Pass based on plugin documentation.
+Keep mobile Obsidian foregrounded until sync reports completion. Use a previewable
+synthetic attachment; a binary byte fixture does not prove image/PDF viewing. No size
+limit is accepted until tested. Record steps, result/error text, date, and recovery.
+If a check fails, preserve work and stop dependent tests. Record actual evidence in
+the implementation's validation log; documentation alone never changes Pending to Pass.

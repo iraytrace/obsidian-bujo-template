@@ -1,14 +1,20 @@
 filters:
   and:
-    - 'file.inFolder("Entries")'
-    - 'file.ext == "md"'
-    - 'note.scheduled && date(note.scheduled).format("YYYY-MM") > today().format("YYYY-MM")'
+    - file.inFolder("Entries")
+    - file.ext == "md"
+    - or:
+        - and:
+            - 'note.scheduled.isEmpty()'
+            - 'note.type == "task" || note.type == "event"'
+        - and:
+            - '!note.scheduled.isEmpty()'
+            - 'date(note.scheduled).format("YYYY-MM") > today().format("YYYY-MM")'
 views:
   - type: table
     name: Future
     order:
-      - note.type
-      - note.description
-      - note.scheduled
-      - note.status
-      - note.collection
+      - type
+      - description
+      - scheduled
+      - status
+      - collection
