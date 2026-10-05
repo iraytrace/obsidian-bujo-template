@@ -7,7 +7,6 @@ views:
   - type: table
     name: Daily
     order:
-      - file.name
       - note.type
       - note.description
       - note.scheduled
