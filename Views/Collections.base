@@ -10,7 +10,6 @@ views:
       property: note.collection
       direction: ASC
     order:
-      - file.name
       - note.type
       - note.description
       - note.scheduled
