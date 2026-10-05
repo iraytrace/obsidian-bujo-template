@@ -1,7 +1,2 @@
 .obsidian/
 .trash/
-
-/Entries/*
-!/Entries/.gitkeep
-/Attachments/*
-!/Attachments/.gitkeep
