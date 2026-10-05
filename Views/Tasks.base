@@ -7,8 +7,6 @@ views:
   - type: table
     name: Tasks
     order:
-      - file.name
-      - note.type
       - note.description
       - note.scheduled
       - note.status

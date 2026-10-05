@@ -7,8 +7,6 @@ views:
   - type: table
     name: Notes
     order:
-      - file.name
-      - type
       - description
       - scheduled
       - status
